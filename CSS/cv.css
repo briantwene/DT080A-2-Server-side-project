@@ -1,0 +1,213 @@
+    /*
+Filename: cv.css
+Name: Brian Twene
+Date: 7/02/21
+*/
+
+/*----SMALLER SCREEN SETTINGS----*/
+
+/*remove padding and margin on all elements*/
+/*set the font type*/
+*{
+    padding:0;
+    margin:0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/*make the body of the page take up the whole browser area*/
+html,body{
+    height:100%;
+    background-color:#e0e0e0ff;
+}
+
+
+/*grid settings for the top area*/
+/*1 colunm 2 rows, row size auto*/
+.top-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+    'header'
+    'nav';
+}
+
+/*set grid area for the top div*/
+.top{
+    grid-area:top;
+}
+
+/*set grid area for the header area*/
+/*align text and add padding*/
+header{
+    grid-column: 1/2;
+    grid-row: 1/2;
+    grid-area:header;
+    text-align: center;
+    padding:1em;
+    font-size: 30px;
+}
+
+#pagehead{
+    padding: 1em;
+    text-align: center;
+}
+
+strong{
+    font-size: 50px;
+}
+
+/*set grid area for the nav area*/
+/*set background color*/
+nav{
+    grid-area: nav;
+    background-color: #3a2ab7ff;
+    grid-column: 1/2;
+    grid-row:2/3;
+}
+
+/*settings for list in the nav area*/
+/*apply CSS flexbox for list items to be evenly spaced*/
+nav > ul{
+  list-style-type: none;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+
+}
+
+/*set the bullet points to square on all list elements*/
+ul{
+    list-style-type: square;
+}
+
+/*add padding and font size to list items*/
+.link{
+padding:1em;
+font-size: 24px;
+}
+
+/*keep the colour of the link to white
+when the link is hovered, visited and upon clicking*/
+nav > a, a:link, a:hover, a:visited, a:active{
+    color: #fffcf7ff;
+    text-decoration: none;
+    
+}
+
+footer > a{
+    color:white;
+}
+/*artice container settings*/
+/*added padding margin and font size */
+article{
+    grid-area: article;
+    background-color: floralwhite;
+    padding: 1em;
+    margin: 1em;
+    font-size: 18px;
+}
+
+/*footer settings */
+/*added padding, aligned text to the center*/
+footer{
+    grid-area:footer;
+    background-color: #161412ff;
+    color: floralwhite;
+    text-align: center;
+    padding: 1em;
+
+}
+.top{
+    grid-row:1/2;
+    grid-column: 1/2;
+}
+
+article{
+    grid-column: 1/2;
+    grid-row:2/3;
+}
+footer{
+    grid-column: 1/2;
+    grid-row: 3/4
+}
+/* general grid settings for whole page layout*/
+/*1 column 3 rows*/
+.gridbox{
+    min-height: 100%;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto min-content;
+  
+}
+
+/*----FOR LARGER SCREENS----*/
+@media only screen and (min-width: 768px){
+
+    /* general grid layout settings for the whole page*/
+    /*6 colunms 3 rows*/
+    .gridbox{
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: min-content auto min-content;
+        
+    }
+
+    .top{
+        grid-column: 1/7;
+        grid-row: 1/2;
+    }
+
+    article{
+        grid-column: 2/6;
+        grid-row: 2/3;
+    }
+
+    footer{
+        grid-column: 1/7;
+        grid-row: 3/4;
+    }
+
+    header{
+        grid-column: 1/7;
+        grid-row: 1/2;
+    }
+
+    nav{
+        grid-column: 1/7;
+        grid-row: 2/3;
+    }
+
+    /*grid layout settings for top div*/
+    /*6 colunms 2 rows*/
+    .top-container{
+    
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: auto;
+        
+    }
+
+    /*change the alignment of list items row*/
+    /*space links evenly*/
+    nav > ul{
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    /*link settings*/
+    /*added padding and font size*/
+    .link{
+        padding-left: 1em;
+        padding-right: 1em;
+        padding-top: 2em;
+        padding-bottom: 2em;
+        font-size: 18px;
+        }
+    
+    
+    /*font size for the article area*/
+    article{
+        font-size: 21px;
+    }
+
+}
